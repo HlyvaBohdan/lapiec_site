@@ -1,0 +1,44 @@
+<form>
+  <div class="form-group">
+    <input [(ngModel)]="title" name="title" type="text" class="form-control" id="title" placeholder="title here..">
+  </div>
+  <div class="form-group">
+    <textarea [(ngModel)]="text" name="text" type="text" id="text" class="form-control" style="min-height: 100px;"
+      placeholder="text here..."></textarea>
+  </div>
+  <div class="form-group">
+    <input [(ngModel)]="postedBy" name="postedBy" type="text" id="author" class="form-control"
+      placeholder="author here...">
+  </div>
+  <button type="button" class="btn  mt-2" (click)="addBlog()" [ngClass]="!editStatus ? 'btn-dark' :'btn-light'"
+    [textContent]="!editStatus ? 'Add' : 'Save edit'">Add</button>
+</form>
+<hr>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Text</th>
+      <th scope="col">Date</th>
+      <th scope="col">Author</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let blog of adminBlogArray;let i=index ">
+      <td>{{i+1}}</td>
+      <td>{{blog.title}}</td>
+      <td>{{blog.text}}</td>
+      <td>{{blog.date|date:'mediumDate'}}</td>
+      <td>{{blog.postedBy}}</td>
+      <td>
+        <input type="button" value="edit" class="btn btn-dark" (click)="editBlog(blog)">
+      </td>
+      <td>
+        <input type="button" value="delete" class="btn btn-dark" (click)="deleteBlog(blog)">
+      </td>
+    </tr>
+  </tbody>
+</table>

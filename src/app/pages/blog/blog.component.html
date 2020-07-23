@@ -1,0 +1,13 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="card col-4" *ngFor="let blog of userBlog">
+            <img class="card-img-top" [src]="blog.image" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text text-primary">{{ blog.date|date:'mediumDate' }} {{blog.postedBy}}</p>
+                <h5 class="card-title">{{ blog.title }}</h5>
+                <p class="card-text">{{ blog.text }}</p>
+                <a class="btn btn-primary" [routerLink]="[ '/blog', blog.id ]">more details</a>
+            </div>
+        </div>
+    </div>
+</div>

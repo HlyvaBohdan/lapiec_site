@@ -1,3 +1,45 @@
 {
-  "blog": []
+  "blog": [
+    {
+      "id": 1,
+      "title": "pizza",
+      "text": "my pizza",
+      "postedBy": "Pizza",
+      "date": 1596289790002,
+      "image": "https://www.pizzaking.ua/uk/resizer/resize/?w=472&h=472&type=c&image=./upload/catalog/2/24c1c648b5bd1bf45f113b185c697f2e"
+    },
+    {
+      "id": 2,
+      "title": "drink",
+      "text": "my drink",
+      "postedBy": "Drink",
+      "date": 1596289856115,
+      "image": "https://www.pizzaking.ua/uk/resizer/resize/?w=472&h=472&type=c&image=./upload/catalog/2/24c1c648b5bd1bf45f113b185c697f2e"
+    },
+    {
+      "title": "Salad",
+      "text": "my salad",
+      "postedBy": "Salad",
+      "date": 1596289848060,
+      "image": "https://www.pizzaking.ua/uk/resizer/resize/?w=472&h=472&type=c&image=./upload/catalog/2/24c1c648b5bd1bf45f113b185c697f2e",
+      "id": 3
+    }
+  ],
+  "categories": [
+    {
+      "nameEN": "pizza",
+      "nameUA": "піца",
+      "id": 1
+    },
+    {
+      "nameEN": "salad",
+      "nameUA": "салат",
+      "id": 2
+    },
+    {
+      "nameEN": "drink",
+      "nameUA": "напій",
+      "id": 3
+    }
+  ]
 }

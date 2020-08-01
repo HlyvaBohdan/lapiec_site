@@ -1,0 +1,80 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between">
+    <p class="pCategory">Category</p>
+    <button class="btn btn-dark" (click)="openModal(modal1)">Add</button>
+  </div>
+  <div class="card-body">
+    <input type="text" class="form-control" [(ngModel)]="nameCategory" name="nameCategory"
+      placeholder="filter category...">
+    <hr>
+    <table class="table table-bordered">
+      <thead>
+        <tr class="table-active">
+          <th scope="col" (click)="sortClickOne()">№
+            <i class="fas fa-sort-up" *ngIf="sortNumber"></i>
+            <i class="fas fa-sort-down" *ngIf="!sortNumber"></i>
+          </th>
+          <th scope="col" (click)="sortClickTwo()">Name EN
+            <i class="fas fa-sort-up" *ngIf="sortNameEN"></i>
+            <i class="fas fa-sort-down" *ngIf="!sortNameEN"></i>
+          </th>
+          <th scope="col" (click)="sortClickThree()">Name UA
+            <i class="fas fa-sort-up" *ngIf="sortNameUA"></i>
+            <i class="fas fa-sort-down" *ngIf="!sortNameUA"></i>
+          </th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let category of adminCategory | search:nameCategory | sort:sortNameUA:sortNameEN:sortNumber:sortCount;let i=index">
+          <td>{{ category.id }}</td>
+          <td>{{ category.nameEN }}</td>
+          <td>{{ category.nameUA }}</td>
+          <td class="delete">
+            <input type="button" value="delete" class="btn btn-secondary" (click)="openModal2(modal2,category.id)">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #modal1>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Category model</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="resetModel()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="d-flex justify-content-between">
+        <div class="form-group">
+          <input [(ngModel)]="nameEN" name="nameEN" type="text" class="form-control" id="nameEN"
+            placeholder="name en here..." (input)="checkInputs()">
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="nameUA" name="nameUA" type="text" class="form-control" id="nameUA"
+            placeholder="name ua here..." (input)="checkInputs()">
+        </div>
+      </div>
+      <hr>
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn-secondary mt-2 mr-2" (click)="resetModel()">Close</button>
+        <button type="button" class="btn btn-secondary mt-2" (click)="submitModel()"
+          [disabled]="!checkInput">Add</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+<ng-template #modal2>
+  <div class="modal-body change">
+    <form>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary mt-2 mr-2 change2" (click)="resetModel()">Dismiss</button>
+        <button type="button" class="btn btn-danger mt-2 change2" (click)="deleteModel(modal2)">Delete</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

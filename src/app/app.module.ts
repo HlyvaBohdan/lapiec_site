@@ -10,6 +10,12 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminBlogComponent } from './admin/admin-blog/admin-blog.component';
 import { BlogDetailsComponent } from './pages/blog-details/blog-details.component';
+import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
+import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { SearchPipe } from '../shared/pipes/search.pipe';
+import { SortPipe } from '../shared/pipes/sort.pipe';
+
 
 
 @NgModule({
@@ -19,12 +25,17 @@ import { BlogDetailsComponent } from './pages/blog-details/blog-details.componen
     BlogComponent,
     AdminBlogComponent,
     AdminComponent,
-    BlogDetailsComponent
+    BlogDetailsComponent,
+    AdminCategoryComponent,
+    AdminProductComponent,
+    SearchPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ModalModule.forRoot(),
     HttpClientModule
 
   ],

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogService } from 'src/shared/services/blog.service';
-import { IBlog } from "src/shared/interfaces/blog.interface";
+import { BlogService } from 'src/app/shared/services/blog.service';
+import { IBlog } from "src/app/shared/interfaces/blog.interface";
 
 @Component({
   selector: 'app-blog',
@@ -8,16 +8,16 @@ import { IBlog } from "src/shared/interfaces/blog.interface";
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
-  userBlog: Array<IBlog> = [];
+  userDiscount: Array<IBlog> = [];
   constructor(private blogService: BlogService) { }
 
   ngOnInit(): void {
-    this.userJSONBlog()
+    this.userJSONDiscount()
   }
 
-  private userJSONBlog(): void {
-    this.blogService.getJSONBlogs().subscribe(data => {
-      this.userBlog = data;
+  private userJSONDiscount(): void {
+    this.blogService.getJSONDiscounts().subscribe(data => {
+      this.userDiscount = data;
     })
   }
   

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ICategory } from "src/shared/interfaces/category.interface";
+import { ICategory } from "src/app/shared/interfaces/category.interface";
 
 @Pipe({
   name: 'search'

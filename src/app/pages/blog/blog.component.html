@@ -1,12 +1,20 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="card col-4" *ngFor="let blog of userBlog">
-            <img class="card-img-top" [src]="blog.image" alt="Card image cap">
+    
+    <div class="row  d-flex justify-content-center">
+        
+            <div class="col-md-12 mt-5">
+              <div class="sectionTitle fadeInTop hidden-xs">
+                <h1 class="h1 as">Акції</h1>
+                <div class="emptySpace60 emptySpace-lt40 emptySpace-md30"></div>
+              </div>
+            </div>
+          
+        <div class="card col-4" *ngFor="let discount of userDiscount ">
+            <img class="card-img-top" [src]="discount.image" alt="Card image cap"[routerLink]="[ '/discount', discount.id ]">
             <div class="card-body">
-                <p class="card-text text-primary">{{ blog.date|date:'mediumDate' }} {{blog.postedBy}}</p>
-                <h5 class="card-title">{{ blog.title }}</h5>
-                <p class="card-text">{{ blog.text }}</p>
-                <a class="btn btn-primary" [routerLink]="[ '/blog', blog.id ]">more details</a>
+                <h5 class="card-title">{{ discount.title }}</h5>
+                
+                <a class="button add-to-cart-product mt-2" [routerLink]="[ '/discount', discount.id ]">Скористатися</a>
             </div>
         </div>
     </div>

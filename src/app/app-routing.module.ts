@@ -6,16 +6,25 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminBlogComponent } from './admin/admin-blog/admin-blog.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ProductComponent } from './pages/product/product.component';
+import { BasketComponent } from './pages/basket/basket.component';
+
 const routes: Routes = [
-  { path: '', redirectTo: 'blog', pathMatch: 'full' },
-  { path: 'blog', component: BlogComponent },
-  { path: 'blog/:id', component: BlogDetailsComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'menu/:category', component: ProductComponent },
+  { path: 'menu/:category/:id', component: ProductDetailsComponent },
+  { path: 'discount', component: BlogComponent },  
+  { path: 'discount/:id', component: BlogDetailsComponent },
+  { path: 'basket', component: BasketComponent },  
   {
     path: 'admin', component: AdminComponent, children: [
       { path: '', redirectTo: 'category', pathMatch: 'full' },
       { path: 'category', component: AdminCategoryComponent },
       { path: 'product', component: AdminProductComponent },
-      { path: 'blog', component: AdminBlogComponent },
+      { path: 'discount', component: AdminBlogComponent },
     ]
   },
 ];

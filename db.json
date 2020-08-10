@@ -2,27 +2,27 @@
   "blog": [
     {
       "id": 1,
-      "title": "pizza",
-      "text": "my pizza",
-      "postedBy": "Pizza",
-      "date": 1596289790002,
-      "image": "https://www.pizzaking.ua/uk/resizer/resize/?w=472&h=472&type=c&image=./upload/catalog/2/24c1c648b5bd1bf45f113b185c697f2e"
+      "title": "Наша фірмова акція “2+1”",
+      "text": "Акція «2+1» діє в понеділок, вівторок, середу та четвер. Замовляйте дві піци та отримуйте ще одну безкоштовно!\n\n* Безкоштовною вважається піца з найменшою вартістю.\n** Ця акція не поєднується з іншими акціями.",
+      "postedBy": "laPiec",
+      "date": 1597061331426,
+      "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Faktsiya-dlya-sajta-21.jpeg?alt=media&token=cfb4b5c3-8370-474f-80f9-4cd807b09e37"
     },
     {
-      "id": 2,
-      "title": "drink",
-      "text": "my drink",
-      "postedBy": "Drink",
-      "date": 1596289856115,
-      "image": "https://www.pizzaking.ua/uk/resizer/resize/?w=472&h=472&type=c&image=./upload/catalog/2/24c1c648b5bd1bf45f113b185c697f2e"
+      "title": "Приведи друга",
+      "text": "\nОтримайте 100 грн за… дружню пораду!\n\nЯкщо ваш друг, зробить у нас замовлення завдяки вашим рекомендаціям, то ви обоє гарантовано отримаєте по 100 грн.",
+      "postedBy": "laPiec",
+      "date": 1597060910060,
+      "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fbring-a-friend-small.jpeg?alt=media&token=122c21a6-251b-4fc5-8557-270b1e1f2aee",
+      "id": 2
     },
     {
-      "title": "Salad",
-      "text": "my salad",
-      "postedBy": "Salad",
-      "date": 1596289848060,
-      "image": "https://www.pizzaking.ua/uk/resizer/resize/?w=472&h=472&type=c&image=./upload/catalog/2/24c1c648b5bd1bf45f113b185c697f2e",
-      "id": 3
+      "id": 3,
+      "title": "День народження",
+      "text": "Святкуйте свій День народження з “LA П’ЄЦ” та отримуйте 3 піци у подарунок!\n\n",
+      "postedBy": "laPiec",
+      "date": 1597061318490,
+      "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fbanner_birthday.jpeg?alt=media&token=af511cf4-1cfe-4feb-b81a-9d4d3e1fcfba"
     }
   ],
   "categories": [
@@ -40,6 +40,143 @@
       "nameEN": "drink",
       "nameUA": "напій",
       "id": 3
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "category": {
+        "id": 1,
+        "nameEN": "pizza",
+        "nameUA": "піца"
+      },
+      "nameEN": "la-piec",
+      "nameUA": "Піца La П’єц",
+      "description": "соус томатний, шинка, баварські ковбаски, сир моцарела, ковбаса салямі, прошуто.",
+      "weight": "480",
+      "price": 168,
+      "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fla-p_yets-1.png?alt=media&token=7271dd49-c7f4-4af4-89b2-c4522688e060",
+      "count": 1
+    },
+    {
+      "category": {
+        "id": 1,
+        "nameEN": "pizza",
+        "nameUA": "піца"
+      },
+      "nameEN": "Caprichoza",
+      "nameUA": "Капрічоза",
+      "description": "соус томатний, сир моцарела, шинка, свіжі гриби.\n\n",
+      "weight": "470",
+      "price": 151,
+      "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fkaprichoza-1.png?alt=media&token=86bb02cb-bdd9-47ae-8cb4-dfd8870abdf6",
+      "count": 1,
+      "id": 2
+    },
+    {
+      "category": {
+        "id": 1,
+        "nameEN": "pizza",
+        "nameUA": "піца"
+      },
+      "nameEN": "cezario",
+      "nameUA": "Цезаріо",
+      "description": "соус вершковий, помідори, хрусткий салат, пармезан, куряче м'ясо, сир моцарела, перепелині яйця.\n\n",
+      "weight": "600",
+      "price": 192,
+      "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Ftsezario-1.png?alt=media&token=440102ff-394f-4233-b7d2-79d6fd20d5d8",
+      "count": 1,
+      "id": 3
+    },
+    {
+      "category": {
+        "nameEN": "salad",
+        "nameUA": "салат",
+        "id": 2
+      },
+      "nameEN": "сezar",
+      "nameUA": "Салат Цезар зі смаженим курячим філе",
+      "description": "Салат айсберг, помідори, куряче м`ясо, сир пармезан, перепелині яйця, духмяні сухарики та фірмова заправка.",
+      "weight": "250",
+      "price": 125,
+      "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Ftsezar-z-kurkoyu.png?alt=media&token=0b65d040-d300-4692-a079-14d9c5aa7ec9",
+      "count": 1,
+      "id": 4
+    },
+    {
+      "category": {
+        "nameEN": "salad",
+        "nameUA": "салат",
+        "id": 2
+      },
+      "nameEN": "insalata",
+      "nameUA": "Інсалата ді Сальмоне",
+      "description": "рукола, помідор чері, огірок, салат айсберг, соус айолі, пармезан, лосось, перепелине яйце, кунжут.",
+      "weight": "285",
+      "price": 134,
+      "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Finsalata-di-salmone1.png?alt=media&token=3759d44d-f860-43bd-a3f1-8ede9d4afa02",
+      "count": 1,
+      "id": 5
+    },
+    {
+      "category": {
+        "nameEN": "salad",
+        "nameUA": "салат",
+        "id": 2
+      },
+      "nameEN": "primavera",
+      "nameUA": "Прімавера",
+      "description": "сир моцарела, салат айсберг, помідор чері, огірок, болгарський перець, оливкова олія, фреш лимонний, орегано.",
+      "weight": "255",
+      "price": 99,
+      "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fprimavera.png?alt=media&token=284bcc41-7378-4c2f-a35f-c9353b4840c1",
+      "count": 1,
+      "id": 6
+    },
+    {
+      "category": {
+        "nameEN": "drink",
+        "nameUA": "напій",
+        "id": 3
+      },
+      "nameEN": "bonaqua",
+      "nameUA": "Вода ",
+      "description": "BonAqua ",
+      "weight": "0.5",
+      "price": 20,
+      "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fvoda-bonaqua-700-1.jpeg?alt=media&token=e4dbb48e-6633-48be-9fac-fbc742df87d5",
+      "count": 1,
+      "id": 7
+    },
+    {
+      "category": {
+        "nameEN": "drink",
+        "nameUA": "напій",
+        "id": 3
+      },
+      "nameEN": "coca-cola",
+      "nameUA": "Вода",
+      "description": "Coca Cola",
+      "weight": "0.5",
+      "price": 24,
+      "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fcola0.5.jpeg?alt=media&token=5c82394c-ed87-452a-9b62-8ab8f9d238a3",
+      "count": 1,
+      "id": 8
+    },
+    {
+      "category": {
+        "nameEN": "drink",
+        "nameUA": "напій",
+        "id": 3
+      },
+      "nameEN": "sandora",
+      "nameUA": "Сік ТМ “RICH\"",
+      "description": "Апельсиновий нектар з м'якоттю",
+      "weight": "1",
+      "price": 42,
+      "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Frich_orange.jpeg?alt=media&token=66d6c1c7-795c-45a4-9029-f9cab3cb1ecb",
+      "count": 1,
+      "id": 9
     }
   ]
 }

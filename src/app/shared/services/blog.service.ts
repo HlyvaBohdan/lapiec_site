@@ -14,24 +14,24 @@ export class BlogService {
     this.url = 'http://localhost:3000/blog'
   }
 
-  getJSONBlogs(): Observable<Array<IBlog>> {
+  getJSONDiscounts(): Observable<Array<IBlog>> {
     return this.http.get<Array<IBlog>>(this.url)
   }
 
-  postJSONBlogs(blog: IBlog): Observable<IBlog> {
-    return this.http.post<IBlog>(this.url, blog)
+  postJSONDiscounts(discount: IBlog): Observable<IBlog> {
+    return this.http.post<IBlog>(this.url, discount)
   }
 
-  updateJSONBlog(blog: IBlog): Observable<IBlog> {
-    return this.http.put<IBlog>(`${this.url}/${blog.id}`, blog)
+  updateJSONDiscount(discount: IBlog): Observable<IBlog> {
+    return this.http.put<IBlog>(`${this.url}/${discount.id}`, discount)
   }
 
-  deleteJSONBlog(id: number): Observable<IBlog> {
+  deleteJSONDiscount(id: number): Observable<IBlog> {
     return this.http.delete<IBlog>(`${this.url}/${id}`)
   }
 
-  getOneJSONBlog(id: number): Observable<IBlog> {
+  getOneJSONDiscount(id: number): Observable<IBlog> {
     return this.http.get<IBlog>(`${this.url}/${id}`)
   }
-  
+
 }

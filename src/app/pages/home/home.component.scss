@@ -1,0 +1,217 @@
+.swiper-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    height: 69vh;
+    background-image: url("../../../assets/images/main.jpg");
+    background-size: cover;
+  }
+
+  .bannerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mainBanner .cellView {
+    height: -webkit-calc(100vh - 160px);
+    height: calc(100vh - 160px);
+    padding-top: 103px;
+    padding-bottom: 80px;
+  }
+
+  .bannerInfo span {
+    color: #c80000;
+  }
+
+  .swiper-logo {
+    display: inline-block;
+    max-width: 22%;
+    max-height: 120px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+  }
+
+  .bannerInfo p {
+    font-family: "Comfortaa";
+    display: inline-flex;
+    font-weight: 500;
+    font-size: 25px;
+  }
+
+  .bannerInfo .as, .bannerInfo p {
+    -webkit-transition: color .250s linear .250s;
+    -o-transition: color .250s linear .250s;
+    transition: color .250s linear .250s;
+  }
+
+  .bannerInfo p span {
+    color: #c80000;
+  }
+
+  .bannerContent .as {
+    padding: 0 30px;
+  }
+
+  .bannerInfo .as {
+    position: relative;
+    margin-bottom: 13px;
+  }
+
+  .bannerContent .as span.cash:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../assets/images/banner-title-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+    content: '';
+  }
+
+  @media (max-height: 700px) and (min-width: 992px) {
+    .deliveryArea {
+      font-size: 14px;
+      padding: 20px 70px;
+    }
+  }
+
+  @media (max-width: 1500px) {
+    .deliveryArea {
+      font-size: 16px;
+      padding: 50px 160px;
+    }
+  }
+
+  .deliveryArea {
+    position: relative;
+    font-size: 14px;
+    padding: 0px 70px;
+    color: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    z-index: 5;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    overflow: hidden;
+    height: 17vh;
+  }
+
+  .large {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .deliveryArea .deliveryImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+  }
+
+  .deliveryArea .deliveryImg.scooterDelivery {
+    top: auto;
+    bottom: 0;
+    left: -35px;
+    width: 100px;
+    height: 90px;
+  }
+
+  .deliveryArea .deliveryImg.apple {
+    top: 7px;
+    width: 40px;
+    height: 40px;
+    left: auto;
+    right: -7px;
+    -webkit-transform: rotate(11deg);
+    -ms-transform: rotate(11deg);
+    transform: rotate(11deg);
+  }
+
+  .deliveryArea .deliveryImg.deliveryProduct {
+    left: auto;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    width: 90px;
+    height: 50px;
+  }
+
+  .deliveryArea .bgPattern {
+    -webkit-background-size: auto auto;
+    background-size: auto;
+  }
+  .bgPattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+
+  .deliveryArea .deliverySection {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 15px;
+    width: 33.33333%;
+  }
+
+  .button.btnColor2 {
+    border-color: #f7c200;
+    background: #f7c200;
+    color: #0e0e0e;
+  }
+  .button:hover.btnColor2 {
+    background-color: transparent;
+    color: #f7c200;
+  }
+  .deliveryArea .deliverySection:after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 1px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    content: '';
+  }
+
+  .deliveryArea .deliverySection span {
+    color: #f7c200;
+  }
+  .deliveryArea .deliverySection p {
+    font-weight: 300;
+    text-align: center;
+  }

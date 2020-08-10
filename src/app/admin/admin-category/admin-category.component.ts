@@ -1,8 +1,8 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { ICategory } from "src/shared/interfaces/category.interface";
-import { Category } from "src/shared/models/category.model";
+import { ICategory } from "src/app/shared/interfaces/category.interface";
+import { Category } from "src/app/shared/models/category.model";
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { CategoryService } from 'src/shared/services/category.service';
+import { CategoryService } from 'src/app/shared/services/category.service';
 
 
 @Component({

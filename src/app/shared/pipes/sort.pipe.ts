@@ -1,11 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ICategory } from "src/shared/interfaces/category.interface";
+import { ICategory } from "src/app/shared/interfaces/category.interface";
 
 @Pipe({
   name: 'sort'
 })
 export class SortPipe implements PipeTransform {
-  sortCount: number;
+
   transform(adminCategory: Array<ICategory>, sortNameUA: boolean, sortNameEN: boolean, sortNumber: boolean, sortCount: number): unknown {
     if (sortNameUA == true) {
       return adminCategory.sort(function (a, b) {

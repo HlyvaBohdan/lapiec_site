@@ -1,24 +1,65 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand">Pizza</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link">Home</a>
+  <div class="navbar navbar-expand-lg navbar-light bg-light justify-content-between" style="padding: 0 1rem">
+    <div id="logo">
+      <a class="navbar-brand" [routerLink]="['home']">
+        <img src="https://www.lapiec-pizza.com.ua/wp-content/themes/lapiec/fonts/svg-icons/logo-dark.svg" alt="">
+      </a>
+    </div>
+    <nav class="navWrapper" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="[ '/discount' ]">
+            <img src="https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/07/menu-icon-1.svg" alt="">
+            <span>Акції</span>
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link">Products</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/menu/pizza']">
+            <img src="https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/07/menu-icon-2.svg" alt="">
+            <span>Піца</span>
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="blog">Blog</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/menu/salad']">
+            <img src="https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/07/menu-icon-3.svg" alt="">
+            <span>Салати</span>
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link">About</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/menu/drink']">
+            <img src="https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/07/menu-icon-4.svg" alt="">
+            <span>Напої</span>
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="admin">Admin</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link">
+            <img src="https://www.lapiec-pizza.com.ua/wp-content/uploads/2018/07/menu-icon-5.svg" alt="">
+            <span>Оплата</span>
+          </a>
         </li>
       </ul>
+    </nav>
+    <div class="headerRightBar">
+      <div class="headerSection">
+        <div class="tel open-popup hidden-xs hidden-sm" data-rel="1">
+          <p>ми Вам перетелефонуємо</p>
+          <span>097 440 40 60</span>
+        </div>
+        <a href="tel:0974404060" class="mobileTel hidden-md hidden-lg">
+        </a>
+      </div>
+      <div class="headerSection header-cart">
+        <a [routerLink]="[ '/basket' ]" class="basket">
+          <img src="https://www.lapiec-pizza.com.ua/wp-content/themes/lapiec/fonts/svg-icons/shopping-cart.svg"
+            alt="shopping-cart">
+          <span class="basketPrice">
+            <i>{{totalPrice}} грн</i>
+          </span>
+        </a>
+      </div>
+      <div class="headerSection user-block">
+        <a routerLink="/admin">Admin</a>
+      </div>
     </div>
-  </nav>
+  </div>
 </header>

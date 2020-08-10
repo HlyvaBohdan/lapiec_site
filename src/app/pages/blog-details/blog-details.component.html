@@ -1,12 +1,11 @@
 <div class="container mt-2">
     <div class="row">
         <div class="card col-4 m-auto text-center">
-            <img class="card-img-top" [src]="blog?.image">
+            <img class="card-img-top" [src]="discount?.image">
             <div class="card-body">
-                <p class="card-text text-primary">{{ blog?.date|date:'mediumDate' }} {{blog?.postedBy}}</p>
-                <h5 class="card-title">{{ blog?.title }}</h5>
-                <p class="card-text">{{ blog?.text }}</p>
-                <a class="btn btn-danger" (click)="goBack()">Back</a>
+                <h5 class="card-title">{{ discount?.title }}</h5>
+                <p class="card-text">{{ discount?.text }}</p>
+                <a class="button add-to-cart-product" (click)="goBack()">Назад</a>
             </div>
         </div>
     </div>

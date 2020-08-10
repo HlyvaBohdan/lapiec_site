@@ -1,0 +1,94 @@
+<div class="section animateSection animated">
+  <div class="container hidden-xs hidde-sm">
+    <div class="row">
+      <div class="col-md-12 col-lg-l2">
+        <div class="emptySpace20"></div>
+        <ul class="breadcrumb smallSlideLeft">
+          <li>
+            <a [routerLink]="[ '/home' ]">
+              <span>Головна</span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="[ '/menu', product?.category.nameEN ]"><span>{{ product?.category.nameUA | titlecase }}</span></a>
+          </li>
+          <li>
+            <a><span>{{ product?.nameUA | titlecase }}</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container mb-5">
+    <div class="row ">
+      <div class="col-lg-12">
+        <div class="productDetailFlex">
+          <div class="swiperMainWrapper mobileFluidSwiper buttonPosition-2">
+            <div class="swiper-container swiper-swiper-unique-id-0 initialized swiper-container-horizontal">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide swiper-slide-active" style="width: 520px;">
+                  <div class="imgWrapper">
+                    <img class="productDetail" [src]="product?.image">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="emptySpace-md45 emptySpace-xs20"></div>
+          </div>
+          <div class="productDetailContent">
+            <div class="productOderDetail smallSlideLeft">
+              <h1 class="h2 as">{{ product?.nameUA }}</h1>
+              <p>{{ product?.description }}</p>
+              <div class="d-flex">
+                <div class="productSize" *ngIf="product?.category.nameEN=='pizza'">
+                  <div class="imgWrapper">
+                    <img src="https://www.lapiec-pizza.com.ua/wp-content/themes/lapiec/fonts/svg-icons/size.svg" alt="size">
+                  </div>
+                  <p>Розмір:</p><span>30 см</span>
+                </div>
+                <div class="productSize">
+                  <div class="imgWrapper">
+                    <img src="https://www.lapiec-pizza.com.ua/wp-content/themes/lapiec/fonts/svg-icons/weight.svg" alt="weight">
+                  </div>
+                  <ng-container *ngIf="product?.category.nameEN=='drink'; else elseTemplate">
+                  <p>Обєм:</p>
+                  <span class="totalWeight">{{ product?.weight }} </span>
+                  <span>л</span>             
+                  </ng-container>
+                  <ng-template #elseTemplate>
+                  <p>Вага:</p>
+                  <span class="totalWeight">{{ product?.weight }} </span>
+                  <span>грамм</span>
+
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+            <div class="emptySpace30 emptySpace-xs25"></div>
+            <div class="orderPrizeSection productOrder">
+              <div class="orderDetailSection smallSlideLeft animationDelay-4">
+                <p class="counterTitle">Кількість: </p>
+                <div class="productCountWrapper">
+                  <span class="productCount lessProduct" (click)="productCount(product,false)"></span>
+                  <input class="product-qty-single" type="text" maxlength="3" [value]="product?.count">
+                  <span class="productCount moreProduct"(click)="productCount(product,true)"></span>
+                </div>
+              </div>
+              <div class="emptySpace30 emptySpace-xs25"></div>
+              <div class="orderDetailSection smallSlideLeft animationDelay-5">
+                <div class="productPrice">
+                  <p>Загалом:</p>
+                  <span class="productDetailPrice">{{ product?.price*product?.count }}</span><i>грн</i>
+                </div>
+              </div>
+            </div>
+            <div class="emptySpace25 emptySpace-xs5"></div>
+            <div class="fadeInTop animationDelay-6">
+              <div class="button addToCart update-cart-product-single" (click)="addBasket(product)">ЗАМОВИТИ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

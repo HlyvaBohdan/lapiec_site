@@ -6,10 +6,13 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminBlogComponent } from './admin/admin-blog/admin-blog.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductComponent } from './pages/product/product.component';
 import { BasketComponent } from './pages/basket/basket.component';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -19,12 +22,16 @@ const routes: Routes = [
   { path: 'discount', component: BlogComponent },  
   { path: 'discount/:id', component: BlogDetailsComponent },
   { path: 'basket', component: BasketComponent },  
+  { path: 'login', component: LoginComponent },  
+
   {
-    path: 'admin', component: AdminComponent, children: [
+    path: 'admin', component: AdminComponent,canActivate:[AuthGuard], children: [
       { path: '', redirectTo: 'category', pathMatch: 'full' },
       { path: 'category', component: AdminCategoryComponent },
       { path: 'product', component: AdminProductComponent },
       { path: 'discount', component: AdminBlogComponent },
+      { path: 'order', component: AdminOrderComponent },
+
     ]
   },
 ];

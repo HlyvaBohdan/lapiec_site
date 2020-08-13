@@ -1,44 +1,209 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-12 mt-5">
-            <div class="sectionTitle fadeInTop hidden-xs">
-                <h1 class="h1 as">Оформити замовлення</h1>
-                <div class="emptySpace60 emptySpace-lt40 emptySpace-md30"></div>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-lg-12" *ngIf="!order.length && !orderComplete">
+      <div class="emptySpace80 emptySpace-lt50 emptySpace-md35 emptySpace-xs0"></div>
+      <div class="sectionTitle fadeInTop d-flex flex-column justify-content-center align-items-center"
+        style="min-height: 35vh">
+        <p>Кошик порожній.</p>
+        <a routerLink="/home" style="color: #c80000">Замовити піцу</a>
+      </div>
     </div>
-    <table class="table">
+    <div class="col-lg-12 mt-5" *ngIf="order.length && !orderComplete">
+      <div class="row">
+        <div class="col-lg-5 col-lg-pull-6 col-my-lt-12 paySelect">
+          <h6 class="h6 as smallSlideRight animationDelay-1">Оберіть спосіб доставки</h6>
+          <div class="emptySpace30"></div>
+          <div class="payForm smallSlideRight">
+            <form id="make-order-form" #orderForm="ngForm" novalidate (submit)="addOrder(orderForm)">
+              <input type="hidden" name="payment_type" value="cash">
+              <div class="deliveryCheckboxs">
+                <label class="checkboxEntry radio">
+                  <input type="radio" name="delivery" value="delivery" checked="checked"><span>Доставка</span>
+                </label>
+                <label class="checkboxEntry radio ml-3">
+                  <input type="radio" name="delivery" value="driveway"><span>Самовивіз</span>
+                </label>
+                <label class="checkboxEntry radio ml-3">
+                  <input type="radio" name="delivery" value="advance"><span>Заздалегідь</span>
+                </label>
+              </div>
+              <div class="emptySpace20 emptySpace-xs15"></div>
+              <div class="inputElementWrapper">
+                <input class="inputElementItem" ngModel name="userName" type="text" placeholder="Ваше імя" required
+                  #name="ngModel">
+                <label>Ваше імя*</label>
+                <span class="focus-border"><i></i></span>
+              </div>
+              <div class="text-danger" [hidden]="name.valid || name.untouched">
+                Не вказано імя
+              </div>
+              <div class="emptySpace20"></div>
+              <div class="inputElementWrapper">
+                <input class="inputElementItem" ngModel name="userPhone" type="text" placeholder="Телефон" required
+                  #phone="ngModel">
+                <label>Телефон*</label>
+                <span class="focus-border"><i></i></span>
+              </div>
+              <div class="text-danger" [hidden]="phone.valid || phone.untouched">
+                Не вказано телефон
+              </div>
+              <div class="emptySpace20"></div>
+              <div class="inputElementWrapper">
+                <input class="inputElementItem" ngModel name="userCity" name="userCity" type="text" placeholder="Місто"
+                  required #city="ngModel">
+                <label>Місто*</label>
+                <span class="focus-border"><i></i></span>
+              </div>
+              <div class="text-danger" [hidden]="city.valid || city.untouched">
+                Не вказано місто
+              </div>
+              <div class="emptySpace20"></div>
+              <div class="inputElementWrapper">
+                <input class="inputElementItem" ngModel name="userStreet" type="text" placeholder="Вулиця" required
+                  #street="ngModel">
+                <label>Вулиця*</label>
+                <span class="focus-border"><i></i></span>
+              </div>
+              <div class="text-danger" [hidden]="street.valid || street.untouched">
+                Не вказана вулиця
+              </div>
+              <div class="emptySpace20"></div>
+              <div class="inputElementWrapper">
+                <input class="inputElementItem" ngModel name="userHouse" type="text" placeholder="Будинок" required
+                  #house="ngModel">
+                <label>Будинок*</label>
+                <span class="focus-border"><i></i></span>
+              </div>
+              <div class="text-danger" [hidden]="house.valid || house.untouched">
+                Не вказаний будинок
+              </div>
+              <div class="emptySpace20"></div>
+              <div class="inputElementWrapper">
+                <textarea class="textareaElementItem" ngModel name="userComents" maxlength="256" cols="30" rows="4"
+                  placeholder="Ваш коментар"></textarea>
+                <label>Ваш коментар</label>
+                <span class="focus-border"><i></i></span>
+              </div>
+              <button type="submit" [disabled]="orderForm.invalid" class="btn btn-warning">ОФОРМИТИ ЗАМОВЛЕННЯ</button>
+            </form>
+            <div class="emptySpace20 emptySpace-xs15"></div>
+          </div>
+          <div class="btnWrapper text-center mb-3">
+          </div>
+        </div>
+        <div class="col-lg-7 col-lg-push-6 col-my-lt-12 mt-2">
+          <div class="payItems smallSlideLeft animationDelay-1">
+            <div class="table">
+              <div class="tr thead">
+                <div class="tr">
+                  <div class="td"></div>
+                  <div class="td">Товар</div>
+                  <div class="td">Ціна</div>
+                  <div class="td">Кількість</div>
+                  <div class="td">Загалом</div>
+                </div>
+              </div>
+              <div class="tr tbody">
+                <div class="tr productOrder" *ngFor="let order of order">
+                  <div class="td">
+                    <div class="delateProduct remove-cart-product-popup open-popup" (click)="deleteProduct(order)">
+                    </div>
+                  </div>
+                  <div class="td">
+                    <div class="smallProduct">
+                      <a class="imgWrapper" [style.backgroundImage]="'url('+ order?.image +')'"></a>
+                      <div class="smallProductInfo">
+                        <h6 class="h6 as"><a>{{order?.nameUA}}</a>
+                        </h6>
+                        <p></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="td">
+                    <div class="singleItemPrice">
+                      <span>{{order?.price}}</span><i>грн</i>
+                    </div>
+                  </div>
+                  <div class="td">
+                    <div class="productCountWrapper">
+                      <span class="productCount lessProduct" (click)="productCount(order,false)"></span>
+                      <input class="product-qty" maxlength="3" type="text" [value]="order?.count">
+                      <span class="productCount moreProduct update-cart-product"
+                        (click)="productCount(order,true)"></span>
+                    </div>
+                  </div>
+                  <div class="td">
+                    <div class="itemPrice productPrice">
+                      <b class="tableMobTitle">Загалом: </b><span>{{order?.count * order?.price}}</span><i>грн</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tr tfoot">
+                <div class="td">
+                  <div class="fullPrice cart-total">
+                    <div class="subFullPrice" style="display:none;">
+                      <span>299</span>
+                      <i>грн</i>
+                    </div>
+                    <div class="totalFullPrice" style="display:block;">
+                      <p>Загалом:</p>
+                      <span>{{totalPrice}}</span>
+                      <i>грн</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btnWrapper txtRight fadeInTop mt-3">
+            <div class="emptySpace40 emptySpace-xs20"></div>
+            <div class="payCheckboxs text-left">
+              <label class="checkboxEntry radio ">
+                <input id="pay" type="radio" name="payment-type" value="cash" class="payment-cash"
+                  checked="checked"><span>Оплата готівкою</span>
+              </label>
+              <label class="checkboxEntry radio ml-3">
+                <input id="pay2" type="radio" name="payment-type" value="card" class="payment-card"><span>Безготівкова
+                  оплата</span>
+              </label>
+            </div>
+            <div class="emptySpace40"></div>
+          </div>
+          <div class="emptySpace-lt60 emptySpace-md45 emptySpace-xs25"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="orderComplete">
+    <div class="card-header d-flex justify-content-between">
+      <p class="pProduct">Ваше замовлення</p>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered">
         <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Товар</th>
-                <th scope="col">Ціна</th>
-                <th scope="col">Кількість</th>
-                <th scope="col">Загалом</th>
-            </tr>
+          <tr class="table-active">
+            <th scope="col">№</th>
+            <th scope="col">Назва страви</th>
+            <th scope="col">Вага(грамм/літр)</th>
+            <th scope="col">Кількість</th>
+            <th scope="col">Ціна</th>
+          </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let o of order; index as i">
-                <td>{{ i+1 }}</td>
-                <td>
-                    <img [src]="o.image" alt="" style="width: 150px;height: 150px;">
-                    <span> {{ o.nameUA }} </span>
-                </td>
-                <td>{{ o.price }} грн</td>
-                <td>
-                    <div class="productCountWrapper">
-                        <span class="productCount lessProduct" (click)="productCount(o, false)"></span>
-                        <input type="text" maxlength="3" [value]="o.count">
-                        <span class="productCount moreProduct" (click)="productCount(o, true)"></span>
-                    </div>
-                </td>
-                <td>{{ o.price * o.count }}</td>
-            </tr>
-            <tr>
-                <td colspan="3"></td>
-                <td>Знижка: 0 грн</td>
-                <td>Загалом: {{ totalPrice }} грн</td>
-            </tr>
+          <tr *ngFor="let newOrder of currentOrder;let i=index ">
+            <td>{{i+1}}</td>
+            <td>{{newOrder.nameUA}}</td>
+            <td>{{newOrder.weight}}</td>
+            <td>{{newOrder.count}}</td>
+            <td>{{newOrder.price}} грн</td>
+          </tr>
+          <td colspan="4"></td>
+          <td>Загалом {{currentTotalPrice}} грн</td>
         </tbody>
-    </table>
+      </table>
+      <div class="button add-to-cart-product" routerLink="/home" (click)="goHome()">На головну</div>
+    </div>
+  </div>
 </div>

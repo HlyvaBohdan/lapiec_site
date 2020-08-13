@@ -178,5 +178,36 @@
       "count": 1,
       "id": 9
     }
+  ],
+  "orders": [
+    {
+      "userName": "Ivan",
+      "userPhone": "0635520011",
+      "userCity": "Львів",
+      "userStreet": "Кошиця ",
+      "userHouse": "1",
+      "ordersDetails": [
+        {
+          "id": 1,
+          "category": {
+            "id": 1,
+            "nameEN": "pizza",
+            "nameUA": "піца"
+          },
+          "nameEN": "la-piec",
+          "nameUA": "Піца La П’єц",
+          "description": "соус томатний, шинка, баварські ковбаски, сир моцарела, ковбаса салямі, прошуто.",
+          "weight": "480",
+          "price": 168,
+          "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fla-p_yets-1.png?alt=media&token=7271dd49-c7f4-4af4-89b2-c4522688e060",
+          "count": 1
+        }
+      ],
+      "totalPayment": 168,
+      "dateOrder": "2020-08-13T13:31:46.591Z",
+      "userComment": "",
+      "status": "В обробці",
+      "id": 1
+    }
   ]
 }

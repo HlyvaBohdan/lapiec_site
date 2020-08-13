@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
 import { ActivatedRoute, Router, Event, NavigationEnd } from '@angular/router';
@@ -10,7 +10,10 @@ import { OrderService } from 'src/app/shared/services/order.service';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
+  @Input() categoryHome: string;
+
   userProduct: Array<IProduct> = [];
+  
   category: string;
   constructor(private prodService: ProductService,
     private orderService: OrderService,
@@ -24,6 +27,10 @@ export class ProductComponent implements OnInit {
     })
   }
   ngOnInit(): void {
+    if (this.categoryHome == 'pizza') {
+      this.userProducts(this.categoryHome)
+      console.log(this.categoryHome)
+    }
   }
 
   private userProducts(categoryName: string): void {

@@ -39,7 +39,9 @@
         </li>
       </ul>
     </nav>
+    
     <div class="headerRightBar">
+    
       <div class="headerSection">
         <div class="tel open-popup hidden-xs hidden-sm" data-rel="1">
           <p>ми Вам перетелефонуємо</p>
@@ -58,8 +60,33 @@
         </a>
       </div>
       <div class="headerSection user-block">
-        <a routerLink="/admin">Admin</a>
+        <a (click)="loginModal(loginForm)">Увійти</a>
+      <div *ngIf="check()"  class="headerSection user-block">
+        <a routerLink="/admin">Адмін</a>
+      </div>
       </div>
     </div>
   </div>
 </header>
+
+<ng-template #loginForm>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Увійти</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)='submit()'>
+      <div class="form-group">
+        <label for="userEmail">Email</label>
+        <input type="email" class="form-control" id="userEmail" [(ngModel)]="userEmail" name="userEmail">
+      </div>
+      <div class="form-group">
+        <label for="userPassword">Пароль</label>
+        <input type="password" class="form-control" id="userPassword"  [(ngModel)]="userPassword" name="userPassword">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</ng-template>

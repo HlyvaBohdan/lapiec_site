@@ -5,7 +5,7 @@
       "title": "Наша фірмова акція “2+1”",
       "text": "Акція «2+1» діє в понеділок, вівторок, середу та четвер. Замовляйте дві піци та отримуйте ще одну безкоштовно!\n\n* Безкоштовною вважається піца з найменшою вартістю.\n** Ця акція не поєднується з іншими акціями.",
       "postedBy": "laPiec",
-      "date": 1597061331426,
+      "date": 1597601787784,
       "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Faktsiya-dlya-sajta-21.jpeg?alt=media&token=cfb4b5c3-8370-474f-80f9-4cd807b09e37"
     },
     {
@@ -181,12 +181,28 @@
   ],
   "orders": [
     {
-      "userName": "Ivan",
-      "userPhone": "0635520011",
+      "id": 1,
+      "userName": "Іван",
+      "userPhone": "0632254488",
       "userCity": "Львів",
-      "userStreet": "Кошиця ",
-      "userHouse": "1",
+      "userStreet": "Франка",
+      "userHouse": "8",
       "ordersDetails": [
+        {
+          "category": {
+            "id": 1,
+            "nameEN": "pizza",
+            "nameUA": "піца"
+          },
+          "nameEN": "Caprichoza",
+          "nameUA": "Капрічоза",
+          "description": "соус томатний, сир моцарела, шинка, свіжі гриби.\n\n",
+          "weight": "470",
+          "price": 151,
+          "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fkaprichoza-1.png?alt=media&token=86bb02cb-bdd9-47ae-8cb4-dfd8870abdf6",
+          "count": 2,
+          "id": 2
+        },
         {
           "id": 1,
           "category": {
@@ -203,11 +219,98 @@
           "count": 1
         }
       ],
-      "totalPayment": 168,
-      "dateOrder": "2020-08-13T13:31:46.591Z",
+      "totalPayment": 470,
+      "dateOrder": "2020-08-17T09:59:11.197Z",
+      "userComment": "",
+      "status": "В обробці"
+    },
+    {
+      "id": 2,
+      "userName": "Тарас",
+      "userPhone": "0632214455",
+      "userCity": "Львів",
+      "userStreet": "Городоцька ",
+      "userHouse": "10",
+      "ordersDetails": [
+        {
+          "category": {
+            "nameEN": "drink",
+            "nameUA": "напій",
+            "id": 3
+          },
+          "nameEN": "coca-cola",
+          "nameUA": "Вода",
+          "description": "Coca Cola",
+          "weight": "0.5",
+          "price": 24,
+          "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fcola0.5.jpeg?alt=media&token=5c82394c-ed87-452a-9b62-8ab8f9d238a3",
+          "count": 2,
+          "id": 8
+        },
+        {
+          "category": {
+            "nameEN": "drink",
+            "nameUA": "напій",
+            "id": 3
+          },
+          "nameEN": "bonaqua",
+          "nameUA": "Вода ",
+          "description": "BonAqua ",
+          "weight": "0.5",
+          "price": 20,
+          "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fvoda-bonaqua-700-1.jpeg?alt=media&token=e4dbb48e-6633-48be-9fac-fbc742df87d5",
+          "count": 3,
+          "id": 7
+        }
+      ],
+      "totalPayment": 108,
+      "dateOrder": "2020-08-17T10:00:04.556Z",
+      "userComment": "",
+      "status": "В обробці"
+    },
+    {
+      "userName": "Ігор",
+      "userPhone": "0632254477",
+      "userCity": "Львів",
+      "userStreet": "Чорновола",
+      "userHouse": "10",
+      "ordersDetails": [
+        {
+          "category": {
+            "nameEN": "salad",
+            "nameUA": "салат",
+            "id": 2
+          },
+          "nameEN": "insalata",
+          "nameUA": "Інсалата ді Сальмоне",
+          "description": "рукола, помідор чері, огірок, салат айсберг, соус айолі, пармезан, лосось, перепелине яйце, кунжут.",
+          "weight": "285",
+          "price": 134,
+          "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Finsalata-di-salmone1.png?alt=media&token=3759d44d-f860-43bd-a3f1-8ede9d4afa02",
+          "count": 1,
+          "id": 5
+        },
+        {
+          "category": {
+            "nameEN": "salad",
+            "nameUA": "салат",
+            "id": 2
+          },
+          "nameEN": "primavera",
+          "nameUA": "Прімавера",
+          "description": "сир моцарела, салат айсберг, помідор чері, огірок, болгарський перець, оливкова олія, фреш лимонний, орегано.",
+          "weight": "255",
+          "price": 99,
+          "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fprimavera.png?alt=media&token=284bcc41-7378-4c2f-a35f-c9353b4840c1",
+          "count": 1,
+          "id": 6
+        }
+      ],
+      "totalPayment": 233,
+      "dateOrder": "2020-08-17T10:00:54.250Z",
       "userComment": "",
       "status": "В обробці",
-      "id": 1
+      "id": 3
     }
   ]
 }

@@ -6,6 +6,9 @@
           <a class="nav-link" routerLink= 'product' routerLinkActive="active dark">Продукти</a>
           <a class="nav-link" routerLink= 'discount' routerLinkActive="active dark">Акції</a>
           <a class="nav-link" routerLink= 'order' routerLinkActive="active dark">Замовлення</a>
+          <button class="btn btn-primary btn-admin" routerLink= '/home' routerLinkActive="active dark">На головну</button>
+          <button class="btn btn-warning btn-admin" (click)="signOut()">Вийти</button>
+
         </div>
       </div>
       <div class="col-10">

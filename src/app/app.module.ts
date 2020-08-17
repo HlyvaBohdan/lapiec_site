@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID,NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -28,6 +28,8 @@ import { SortPipe } from '../app/shared/pipes/sort.pipe';
 import { SearchProductPipe } from '../app/shared/pipes/search-product.pipe';
 import { OrderModule } from 'ngx-order-pipe';
 import { SearchDiscountPipe } from '../app/shared/pipes/search-discount.pipe';
+import { registerLocaleData } from '@angular/common';
+import localeUk from '@angular/common/locales/uk';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -35,6 +37,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
+import { SearchOrderPipe } from './shared/pipes/search-order.pipe';
+
+registerLocaleData(localeUk);
 
 @NgModule({
   declarations: [
@@ -57,6 +62,7 @@ import { LoginComponent } from './login/login.component';
     BasketComponent,
     AdminOrderComponent,
     LoginComponent,
+    SearchOrderPipe,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +78,7 @@ import { LoginComponent } from './login/login.component';
     OrderModule,
 
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'uk' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

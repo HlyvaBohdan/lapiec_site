@@ -36,8 +36,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let prod of adminProduct |searchProduct:nameProduct| orderBy: order:reverse:'case-insensitive'">
-          <td>{{prod.id }}</td>
+        <tr *ngFor="let prod of adminProduct |searchProduct:nameProduct| orderBy: order:reverse:'case-insensitive' let i=index">
+          <td>{{i+1}}</td>
           <td>{{ prod.category.nameUA}}</td>
           <td>{{ prod.nameEN }}</td>
           <td>{{ prod.nameUA }}</td>
@@ -97,8 +97,8 @@
           <label for="productPrice">Ціна</label>
           <input type="number" class="form-control" id="productPrice" [(ngModel)]="productPrice" name="productPrice">
         </div>
-        <div *ngIf="!editStatus">
-          <p>Картинка</p>
+        <p *ngIf="!editStatus">Картинка</p>
+      <p *ngIf="editStatus">При потребі, Ви можете загрузити нову картинку</p>
           <div class="custom-file mb-3" style="overflow: hidden;" *ngIf="!imageStatus">
             <input (change)="uploadFile($event)" type="file" class="custom-file-input" id="productImage" required>
             <label class="custom-file-label" for="productImage">Виберіть зображення...</label>
@@ -107,7 +107,7 @@
             <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" aria-valuemin="0"
               aria-valuemax="100" [style.width]="(uploadProgress | async) + '%'"></div>
           </div>
-        </div>
+       
         <div class="image mb-3" *ngIf="imageStatus" style="width: 200px; height: 200px;">
           <img [src]="productImage" alt="" style="width: 100%; height: 100%;">
         </div>

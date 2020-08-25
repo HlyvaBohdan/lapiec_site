@@ -31,7 +31,7 @@
       <tbody>
         <tr
           *ngFor="let discount of adminDiscountArray|searchDiscount:nameDiscount| orderBy: order:reverse:'case-insensitive';let i=index ">
-          <td>{{discount.id}}</td>
+          <td>{{i+1}}</td>
           <td>{{discount.title}}</td>
           <td>{{discount.text}}</td>
           <td>{{discount.date|date:'mediumDate'}}</td>

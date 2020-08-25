@@ -28,7 +28,7 @@
       <tbody>
         <tr
           *ngFor="let category of adminCategory | search:nameCategory | sort:sortNameUA:sortNameEN:sortNumber:sortCount;let i=index">
-          <td>{{ category.id }}</td>
+          <td>{{ i+1 }}</td>
           <td>{{ category.nameEN }}</td>
           <td>{{ category.nameUA }}</td>
           <td class="delete">
@@ -42,7 +42,7 @@
 
 <ng-template #modal1>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Category model</h4>
+    <h4 class="modal-title pull-left">Добавити категорію</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="resetModel()">
       <span aria-hidden="true">&times;</span>
     </button>

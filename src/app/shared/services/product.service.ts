@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
 import { HttpClient } from '@angular/common/http';
+import { AngularFirestore, DocumentChangeAction, DocumentReference } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class ProductService {
   private url: string;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private firestore:AngularFirestore) { 
     this.url = 'http://localhost:3000/products';
   }
   getJSONProduct(): Observable<Array<IProduct>>{
@@ -29,6 +30,22 @@ export class ProductService {
   }
   getOneProduct(id: number): Observable<IProduct>{
     return this.http.get<IProduct>(`${this.url}/${id}`);
+  }
+
+  getFirecloudProduct(): Observable<DocumentChangeAction<unknown>[]>{
+    return this.firestore.collection('products').snapshotChanges()
+  }
+
+  postFirecloudProduct(product:IProduct):Promise<DocumentReference>{
+    return this.firestore.collection('products').add(product);
+  }
+
+  deleteFirecloudProduct(id:number): Promise<void> {
+    return this.firestore.collection('products').doc(id.toString()).delete();
+  }
+
+  updateFirecloudProduct(product: IProduct): Promise<void> {
+    return this.firestore.collection('products').doc(product.id.toString()).update(product);
   }
 
   productCountService(product: IProduct, status: boolean):number {

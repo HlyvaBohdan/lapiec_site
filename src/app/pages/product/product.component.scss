@@ -16,3 +16,28 @@
 .h1{
     margin-top:-45px;
 }
+.size{
+    position: absolute;
+    bottom: 0px;
+    left: 15px;
+    font-family: Comfortaa;
+    font-size: 18px;
+    color: white;
+    border-radius: 10px;
+
+}
+.weight{
+    position: absolute;
+    bottom: 0px;
+    right: 15px;
+    font-family: Comfortaa;
+    font-size: 18px;
+    color: white;
+    border-radius: 10px;
+}
+.size:hover,.weight:hover{
+    color: white;
+}
+.correct{
+    box-shadow: inset 0px -65px 45px -40px rgba(0,0,0,0.93);
+}

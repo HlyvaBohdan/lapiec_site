@@ -12,13 +12,26 @@ export class BlogComponent implements OnInit {
   constructor(private blogService: BlogService) { }
 
   ngOnInit(): void {
-    this.userJSONDiscount()
+    // this.userJSONDiscount()
+    this.userFirebaseDiscounts()
   }
 
-  private userJSONDiscount(): void {
-    this.blogService.getJSONDiscounts().subscribe(data => {
-      this.userDiscount = data;
-    })
+  // private userJSONDiscount(): void {
+  //   this.blogService.getJSONDiscounts().subscribe(data => {
+  //     this.userDiscount = data;
+  //   })
+  // }
+
+  private userFirebaseDiscounts(): void {
+    this.blogService.getFirecloudDiscounts().subscribe(
+      collection => {
+        this.userDiscount = collection.map(discount => {
+          const data = discount.payload.doc.data() as IBlog;
+          const id = discount.payload.doc.id;
+          return {id, ...data };
+        });
+      }
+    );
   }
   
 }

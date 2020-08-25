@@ -200,7 +200,7 @@
           "weight": "470",
           "price": 151,
           "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fkaprichoza-1.png?alt=media&token=86bb02cb-bdd9-47ae-8cb4-dfd8870abdf6",
-          "count": 2,
+          "count": 5,
           "id": 2
         },
         {
@@ -219,52 +219,8 @@
           "count": 1
         }
       ],
-      "totalPayment": 470,
+      "totalPayment": 923,
       "dateOrder": "2020-08-17T09:59:11.197Z",
-      "userComment": "",
-      "status": "В обробці"
-    },
-    {
-      "id": 2,
-      "userName": "Тарас",
-      "userPhone": "0632214455",
-      "userCity": "Львів",
-      "userStreet": "Городоцька ",
-      "userHouse": "10",
-      "ordersDetails": [
-        {
-          "category": {
-            "nameEN": "drink",
-            "nameUA": "напій",
-            "id": 3
-          },
-          "nameEN": "coca-cola",
-          "nameUA": "Вода",
-          "description": "Coca Cola",
-          "weight": "0.5",
-          "price": 24,
-          "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fcola0.5.jpeg?alt=media&token=5c82394c-ed87-452a-9b62-8ab8f9d238a3",
-          "count": 2,
-          "id": 8
-        },
-        {
-          "category": {
-            "nameEN": "drink",
-            "nameUA": "напій",
-            "id": 3
-          },
-          "nameEN": "bonaqua",
-          "nameUA": "Вода ",
-          "description": "BonAqua ",
-          "weight": "0.5",
-          "price": 20,
-          "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fvoda-bonaqua-700-1.jpeg?alt=media&token=e4dbb48e-6633-48be-9fac-fbc742df87d5",
-          "count": 3,
-          "id": 7
-        }
-      ],
-      "totalPayment": 108,
-      "dateOrder": "2020-08-17T10:00:04.556Z",
       "userComment": "",
       "status": "В обробці"
     },
@@ -311,6 +267,50 @@
       "userComment": "",
       "status": "В обробці",
       "id": 3
+    },
+    {
+      "userName": "fsd",
+      "userPhone": "fdsfds",
+      "userCity": "fsdf",
+      "userStreet": "hghfg",
+      "userHouse": "gfd",
+      "ordersDetails": [
+        {
+          "id": "MFg8sI2YEq4RmXSn0k58",
+          "nameEN": "bonaqua",
+          "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fvoda-bonaqua-700-1.jpeg?alt=media&token=74d9b384-d949-4f75-867c-2ff85cc8bcf7",
+          "weight": "0.5",
+          "price": 20,
+          "category": {
+            "nameUA": "напої",
+            "id": "Imp0wCQhbSv6alZtJxhx",
+            "nameEN": "drink"
+          },
+          "nameUA": "Вода ",
+          "description": "BonAqua ",
+          "count": 1
+        },
+        {
+          "id": "tz0OO1hauCTevHYo8dJq",
+          "price": 24,
+          "image": "https://firebasestorage.googleapis.com/v0/b/juniors-a529e.appspot.com/o/images%2Fcola0.5.jpeg?alt=media&token=6d1190ff-003d-4f54-9674-c5e3f8aae20c",
+          "description": "Coca Cola",
+          "weight": "0.5",
+          "count": 4,
+          "nameUA": "Вода",
+          "category": {
+            "id": "Imp0wCQhbSv6alZtJxhx",
+            "nameEN": "drink",
+            "nameUA": "напої"
+          },
+          "nameEN": "coca-cola"
+        }
+      ],
+      "totalPayment": 116,
+      "dateOrder": "2020-08-22T12:22:25.007Z",
+      "userComment": "",
+      "status": "В обробці",
+      "id": 4
     }
   ]
 }

@@ -1,0 +1,91 @@
+<!-- <h1>profile works!</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Email: {{ userEmail }}</h2>
+            <button class="btn btn-warning" (click)="signOut()">Sign Out</button>
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-mt-5">
+            <div class="sectionTitle fadeInTop hidden-xs">
+                <h1 class="h1 as">Особистий кабінет</h1>
+                <div class="emptySpace60 emptySpace-lt40 emptySpace-md30"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4">
+                    <div class="h5">Персональні дані:</div>
+                    <div class="h7">Email: {{ userEmail }}</div>
+                    <div class="h7">Імя: {{ userName }}</div>
+                    <div class="h7">Прізвище: {{ userLastName }}</div>
+                    <button class="btn btn-warning changeB" (click)="signOut()">Вийти</button>
+                </div>
+                <div class="col-8">
+                    <div class="h5">Ваші замовлення:</div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="table-active">
+                                <th scope="col">№</th>
+                                <th scope="col">Дата</th>
+                                <th scope="col">Сума</th>
+                                <th>Статус</th>
+                                <th>Деталі</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let order of userOrder let i = index">
+                                <td>{{i+1}}</td>
+                                <td>{{order.dateOrder |date:'dd MMMM, EEEE, HH:mm год' }}</td>
+                                <td>{{order.totalPayment}} грн</td>
+                                <td>{{order.status}}</td>
+                                <td> <input type="button" value="Детально" class="btn btn-success"
+                                        (click)="openDetailsModal(order,modal1)"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #modal1>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Деталі замовлення:</h4>
+    </div>
+    <div class="modal-body">
+
+        <h6 class="modal-title pull-left">Замовлення</h6>
+        <table class="table table-bordered">
+            <thead>
+                <tr class="table-active">
+                    <th scope="col">Категорія</th>
+                    <th scope="col">Назва </th>
+                    <th scope="col">Кількість</th>
+                    <th scope="col">Вага</th>
+                    <th scope="col">Ціна</th>
+                    <th scope="col">Картинка</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orderDetails">
+                    <td>{{ order.category.nameUA}}</td>
+                    <td>{{ order.nameUA }}</td>
+                    <td>{{ order.count }}</td>
+                    <td>{{ order.weight }}</td>
+                    <td>{{ order.price }} грн</td>
+                    <td><img [src]="order.image" alt="" style="width: 50px; height: 50px;"></td>
+                </tr>
+            </tbody>
+        </table>
+        <h6 class="modal-title pull-left">Загальна сума: {{orderPayment}}грн</h6>
+    </div>
+</ng-template>

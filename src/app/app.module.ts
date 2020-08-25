@@ -35,9 +35,13 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 import { LoginComponent } from './login/login.component';
 import { SearchOrderPipe } from './shared/pipes/search-order.pipe';
+import { ProfileComponent } from './profile/profile.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { NgxUiLoaderModule, NgxUiLoaderRouterModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader'
+import { loaderConfig } from './preloader-config';
 
 registerLocaleData(localeUk);
 
@@ -63,6 +67,7 @@ registerLocaleData(localeUk);
     AdminOrderComponent,
     LoginComponent,
     SearchOrderPipe,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +81,9 @@ registerLocaleData(localeUk);
     AngularFirestoreModule,
     AngularFireStorageModule,
     OrderModule,
-
+    TabsModule.forRoot(),
+    NgxUiLoaderModule.forRoot(loaderConfig),
+    NgxUiLoaderRouterModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'uk' }],
   bootstrap: [AppComponent]

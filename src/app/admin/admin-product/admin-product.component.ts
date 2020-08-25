@@ -33,7 +33,7 @@ export class AdminProductComponent implements OnInit {
   currentIndexDelete: number;
   checkInput: boolean = false;
   reverse: boolean = false;
-  order: string = 'nameEn';
+  order: string = 'category.nameEN';
   sortedCollection: Array<IProduct>;
   editStatus: boolean;
   constructor(private catService: CategoryService,
@@ -41,25 +41,50 @@ export class AdminProductComponent implements OnInit {
     private prodService: ProductService,
     private afStorage: AngularFireStorage,
     private orderPipe: OrderPipe,) {
-    this.sortedCollection = this.orderPipe.transform(this.adminProduct, 'nameEn');
+    this.sortedCollection = this.orderPipe.transform(this.adminProduct, 'category.nameEN');
   }
 
   ngOnInit(): void {
-    this.getCategories();
-    this.getProducts();
+    // this.getCategories();
+    // this.getProducts();
+    this.adminFirebaseCategories()
+    this.adminFirebaseProducts()
   }
 
-  private getCategories(): void {
-    this.catService.getJSONCategory().subscribe(data => {
-      this.categories = data
-    })
+  // private getCategories(): void {
+  //   this.catService.getJSONCategory().subscribe(data => {
+  //     this.categories = data
+  //   })
+  // }
 
+  private adminFirebaseCategories(): void {
+    this.catService.getFirecloudCategory().subscribe(
+      collection => {
+        this.categories = collection.map(category => {
+          const data = category.payload.doc.data() as ICategory;
+          const id = category.payload.doc.id;
+          return { id, ...data };
+        });
+      }
+    );
   }
 
-  private getProducts(): void {
-    this.prodService.getJSONProduct().subscribe(data => {
-      this.adminProduct = data;
-    });
+  // private getProducts(): void {
+  //   this.prodService.getJSONProduct().subscribe(data => {
+  //     this.adminProduct = data;
+  //   });
+  // }
+
+  private adminFirebaseProducts(): void {
+    this.prodService.getFirecloudProduct().subscribe(
+      collection => {
+        this.adminProduct = collection.map(product => {
+          const data = product.payload.doc.data() as IProduct;
+          const id = product.payload.doc.id;
+          return { id, ...data };
+        });
+      }
+    );
   }
 
   setOrder(value: string) {
@@ -101,14 +126,17 @@ export class AdminProductComponent implements OnInit {
     if (this.checkInput == true) {
       if (!this.editStatus) {
         delete product.id;
-        this.prodService.postJSONProduct(product).subscribe(() => {
-          this.getProducts();
-        })
+         // this.prodService.postJSONProduct(product).subscribe(() => {
+        //   // this.getProducts();
+        // });
+        this.prodService.postFirecloudProduct(Object.assign({}, product))
       }
       else {
-        this.prodService.updateJSONProduct(product).subscribe(() => {
-          this.getProducts();
-        });
+        // this.prodService.updateJSONProduct(product).subscribe(() => {
+        //   // this.getProducts();
+        // });
+        this.prodService.updateFirecloudProduct(Object.assign({}, product))
+
         this.editStatus = false
       }
       this.resetModel()
@@ -140,12 +168,9 @@ export class AdminProductComponent implements OnInit {
   }
 
   deleteProduct(template: TemplateRef<any>): void {
+    console.log(this.currentIndexDelete)
     if (confirm('Are you sure?')) {
-      this.prodService.deleteJSONProduct(this.currentIndexDelete).subscribe(
-        () => {
-          this.getProducts()
-        }
-      )
+      this.prodService.deleteFirecloudProduct(this.currentIndexDelete)
       this.modalService.hide(1);
     }
   }
@@ -153,12 +178,9 @@ export class AdminProductComponent implements OnInit {
   checkInputs(): void {
     if (this.productNameEN == '' || this.productNameUA == ''
       || this.productDescription == '' || this.productWeight == '' ||
-      this.productPrice == undefined) {
-      if (this.editStatus == false && this.productImage != '') {
-        this.checkInput = false
-      }
+      this.productPrice == undefined || this.editStatus == false || this.productImage == '') {
       this.checkInput = false
-      alert("Please check all inputs!")
+      alert("Заповніть усі поля!")
     }
     else {
       this.checkInput = true

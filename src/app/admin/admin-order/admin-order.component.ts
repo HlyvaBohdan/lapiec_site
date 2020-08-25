@@ -2,10 +2,9 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { OrderService } from '../../shared/services/order.service';
 import { IOrder } from 'src/app/shared/interfaces/order.interface';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { OrderPipe } from 'ngx-order-pipe';
 import { IProduct } from '../../../../../../../la-piec/src/app/shared/interfaces/product.interface';
-import { Data } from '@angular/router';
 import { Order } from 'src/app/shared/models/order.model';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-admin-order',
@@ -19,7 +18,7 @@ export class AdminOrderComponent implements OnInit {
   nameOrder: string;
   modalRef: BsModalRef;
   reverse: boolean = false;
-  order: string = 'data';
+  order: string = 'status';
   totalPrice: number;
   orderId: number;
   orderUser: string;
@@ -29,14 +28,14 @@ export class AdminOrderComponent implements OnInit {
   orderPhone: string;
   orderPayment: number
   orderComment: string;
-  orderData: Date;
+  orderData: string;
   orderStatus: string;
-  config = {
-    ignoreBackdropClick: true
-  }
+  orderComplete: IOrder;
+  editStatus: boolean;
 
   constructor(private orderService: OrderService,
     private modalService: BsModalService,
+    private afStore: AngularFirestore
   ) { }
 
   ngOnInit(): void {
@@ -44,9 +43,17 @@ export class AdminOrderComponent implements OnInit {
   }
 
   private getOrders(): void {
-    this.orderService.getOrder().subscribe(data => {
-      this.adminOrders = data;
-    })
+    // this.orderService.getOrder().subscribe(data => {
+    //   this.adminOrders = data;
+    // })
+    this.orderService.getFirecloudOrders().subscribe(collection => {
+      this.adminOrders = collection.map(order => {
+        const data = order.payload.doc.data() as IOrder;
+        const id = order.payload.doc.id;
+        return { id, ...data };
+      });
+    }
+    );
   }
 
   openDetailsModal(order: IOrder, template: TemplateRef<any>) {
@@ -63,6 +70,7 @@ export class AdminOrderComponent implements OnInit {
     this.orderData = order.dateOrder;
     this.orderComment = order.userComment;
     this.orderStatus = order.status;
+    this.editStatus = true;
   }
 
   setOrder(value: string) {
@@ -76,19 +84,20 @@ export class AdminOrderComponent implements OnInit {
     status == true ? this.orderStatus = 'Прийнято' : this.orderStatus = 'Відхилено';
     this.editOrder()
     this.modalService.hide(1);
+    this.editStatus = false;
   }
 
   completeOrder(order: IOrder): void {
     order.status = 'Завершено';
-    this.orderService.updateOrder(order).subscribe(() => {
-      this.getOrders()
-    })
+    this.orderComplete = order;
+    this.editOrder()
   }
 
   deleteOrder(order: IOrder): void {
-    this.orderService.deleteOrder(order.id).subscribe(() => {
-      this.getOrders();
-    })
+    // this.orderService.deleteOrder(order.id).subscribe(() => {
+    //   this.getOrders();
+    // })
+    this.orderService.deleteFirecloudOrder(order.id);
   }
 
   deleteProductOrder(product: IProduct): void {
@@ -101,20 +110,24 @@ export class AdminOrderComponent implements OnInit {
   }
 
   private editOrder(comment?: string) {
-    const order: IOrder = new Order(this.orderId,
-      this.orderUser,
-      this.orderPhone,
-      this.orderCity,
-      this.orderStreet,
-      this.orderHouse,
-      this.orderDetails,
-      this.orderPayment,
-      this.orderData,
-      this.orderComment,
-      this.orderStatus);
-    this.orderService.updateOrder(order).subscribe(() => {
-      this.getOrders();
-    })
+    let order: IOrder;
+    if (this.editStatus) {
+        order = new Order(this.orderId,
+        this.orderUser,
+        this.orderPhone,
+        this.orderCity,
+        this.orderStreet,
+        this.orderHouse,
+        this.orderDetails,
+        this.orderPayment,
+        this.orderData,
+        this.orderComment,
+        this.orderStatus);
+    }
+    else{
+       order = this.orderComplete;
+    }
+    this.orderService.updateFirecloudOrder(Object.assign({},order));
     if (this.orderPayment == 0) {
       alert('Замовлення пусте і буде автоматично видалено!')
       this.deleteOrder(order)

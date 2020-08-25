@@ -9,7 +9,7 @@ export class Order implements IOrder {
         public userHouse: string,
         public ordersDetails: Array<IProduct>,
         public totalPayment: number,
-        public dateOrder: Date,
+        public dateOrder:string,
         public userComment: string,
     public status: string='В обробці'){ }
 }

@@ -10,11 +10,11 @@
             </div>
           
         <div class="card col-4" *ngFor="let discount of userDiscount ">
-            <img class="card-img-top" [src]="discount.image" alt="Card image cap"[routerLink]="[ '/discount', discount.id ]">
+            <img class="card-img-top" [src]="discount.image" alt="Card image cap"[routerLink]="[ '/discount', discount.title ]">
             <div class="card-body">
                 <h5 class="card-title">{{ discount.title }}</h5>
                 
-                <a class="button add-to-cart-product mt-2" [routerLink]="[ '/discount', discount.id ]">Скористатися</a>
+                <a class="button add-to-cart-product mt-2" [routerLink]="[ '/discount', discount.title ]">Скористатися</a>
             </div>
         </div>
     </div>

@@ -36,31 +36,46 @@ export class AdminBlogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.adminJSONDiscounts();
+    // this.adminJSONDiscounts();
     this.reset();
+    this.adminFirebaseDiscounts();
   }
 
-  private adminJSONDiscounts(): void {
-    this.blogServise.getJSONDiscounts().subscribe(
-      data => {
-        this.adminDiscountArray = data;
-      })
+  // private adminJSONDiscounts(): void {
+  //   this.blogServise.getJSONDiscounts().subscribe(
+  //     data => {
+  //       this.adminDiscountArray = data;
+  //     })
+  // }
+
+  private adminFirebaseDiscounts(): void {
+    this.blogServise.getFirecloudDiscounts().subscribe(
+      collection => {
+        this.adminDiscountArray = collection.map(discount => {
+          const data = discount.payload.doc.data() as IBlog;
+          const id = discount.payload.doc.id;
+          return {id, ...data };
+        });
+      }
+    );
   }
-  
   addDiscount(): void {
     let date = Date.now();
     const newBlog = new Blog(this.id, this.title, this.text, this.postedBy, date, this.image);
     if (this.title != '' && this.text != '' && this.postedBy != '') {
       if (!this.editStatus) {
         delete newBlog.id;
-        this.blogServise.postJSONDiscounts(newBlog).subscribe(() => {
-          this.adminJSONDiscounts();
-        })
+        // this.blogServise.postJSONDiscounts(newBlog).subscribe(() => {
+        //   this.adminJSONDiscounts();
+        // })
+        this.blogServise.postFirecloudDiscounts(Object.assign({},newBlog))
       }
       else {
-        this.blogServise.updateJSONDiscount(newBlog).subscribe(() => {
-          this.adminJSONDiscounts();
-        });
+        // this.blogServise.updateJSONDiscount(newBlog).subscribe(() => {
+        //   this.adminJSONDiscounts();
+        // });
+        this.blogServise.editFirecloudDiscounts(Object.assign({},newBlog))
+
         this.editStatus = false;
       }
       this.reset()
@@ -83,9 +98,11 @@ export class AdminBlogComponent implements OnInit {
 
   deleteDiscount(discount: IBlog): void {
     if (confirm('Are you sure?')) {
-      this.blogServise.deleteJSONDiscount(discount.id).subscribe(() => {
-        this.adminJSONDiscounts()
-      })
+      //   this.blogServise.deleteJSONDiscount(discount.id).subscribe(() => {
+      //     // this.adminJSONDiscounts()
+      //   })
+      // }
+      this.blogServise.deleteFirecloudDiscounts(discount.id)
     }
     this.reset();
   }
@@ -93,6 +110,7 @@ export class AdminBlogComponent implements OnInit {
   openModal(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template);
   }
+  
   uploadFile(event): void {
     const file = event.target.files[0];
     const type = file.type.slice(file.type.indexOf('/') + 1);

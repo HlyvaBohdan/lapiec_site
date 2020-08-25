@@ -8,7 +8,7 @@ export interface IOrder{
     userHouse: string;
     ordersDetails: Array<IProduct>;
     totalPayment: number;
-    dateOrder: Date;
+    dateOrder: string;
     userComment: string;
     status: string;
 }

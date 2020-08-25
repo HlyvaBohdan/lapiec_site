@@ -10,11 +10,14 @@
   <div class="row clear-md-3 clear-lg-3 clear-sm-2">
     <div class="col-sm-6 col-md-4" *ngFor="let prod of userProduct">
       <div class="productThumbnail productItemAnimate animated">
-        <a [routerLink]="[ '/menu/'+prod.category.nameEN, prod.id ]" class="productImage preview preloaded" [style.backgroundImage]="'url('+prod.image+')'"></a>
+        <a [routerLink]="[ '/menu/'+prod.category.nameEN, prod.nameEN]" class="productImage preview preloaded" [ngClass]="{'correct':prod.category.nameEN!='drink' }" [style.backgroundImage]="'url('+prod.image+')'">
+          <p class="size" *ngIf="prod.category.nameEN=='pizza'">30 см</p>
+          <p class="weight"*ngIf="prod.category.nameEN!='drink'">{{prod.weight}} гр</p>
+        </a>
         <div class="productInfoWrapp">
           <div class="productDescription normall">
             <div class="h5 as">
-              <a [routerLink]="[ '/menu/'+prod.category.nameEN, prod.id ]">{{ prod.nameUA }}</a>
+              <a [routerLink]="[ '/menu/'+prod.category.nameEN, prod.nameEN ]">{{ prod.nameUA }}</a>
             </div>
             <p>{{ prod.description }}</p>
           </div>

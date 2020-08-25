@@ -1,6 +1,7 @@
 .payItems {
     border: 1px solid #e6e6e6;
     padding: 0 20px;
+    margin-top:-25px
   }
   
   .payItems .table {
@@ -750,72 +751,4 @@
 
   .changeB{
     margin-top: 15px;
-}
-.checkboxEntry {
-  display: inline-block;
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
-  min-width: 20px;
-  min-height: 20px;
-}
-
-.checkboxEntry.light span {
-  color: #fff;
-}
-
-.checkboxEntry input {
-  display: none;
-}
-
-.checkboxEntry input:checked + span:before {
-  background-position: center center;
-}
-
-.checkboxEntry input:checked + span:after {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-  opacity: 1;
-}
-
-.checkboxEntry span {
-  position: relative;
-  font-size: 18px;
-  line-height: 22px;
-  padding-left: 22px;
-  display: block;
-  font-family: "Comfortaa";
-  font-weight: 600;
-}
-
-
-.checkboxEntry span:after {
-  position: absolute;
-  top: 4px;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  background: #f7c200;
-  -webkit-transform: scale(0.05);
-  -ms-transform: scale(0.05);
-  transform: scale(0.05);
-  opacity: 1;
-  -webkit-transition: opacity .450s linear, -webkit-transform .450s linear;
-  transition: opacity .450s linear, -webkit-transform .450s linear;
-  -o-transition: opacity .450s linear, transform .450s linear;
-  transition: opacity .450s linear, transform .450s linear;
-  transition: opacity .450s linear, transform .450s linear, -webkit-transform .450s linear;
-  content: '';
-}
-
-.checkboxEntry.radio span:before {
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  background: none;
-}
-
-.checkboxEntry.radio span:after {
-  -webkit-border-radius: 100%;
-  border-radius: 100%;
 }

@@ -11,22 +11,11 @@
     <div class="col-lg-12 mt-5" *ngIf="order.length && !orderComplete">
       <div class="row">
         <div class="col-lg-5 col-lg-pull-6 col-my-lt-12 paySelect">
-          <h6 class="h6 as smallSlideRight animationDelay-1">Оберіть спосіб доставки</h6>
+          <h6 class="h6 as smallSlideRight animationDelay-1">Заповніть дані:</h6>
           <div class="emptySpace30"></div>
           <div class="payForm smallSlideRight">
             <form id="make-order-form" #orderForm="ngForm" novalidate (submit)="addOrder(orderForm)">
               <input type="hidden" name="payment_type" value="cash">
-              <div class="deliveryCheckboxs">
-                <label class="checkboxEntry radio">
-                  <input type="radio" name="delivery" value="delivery" checked="checked"><span>Доставка</span>
-                </label>
-                <label class="checkboxEntry radio ml-3">
-                  <input type="radio" name="delivery" value="driveway"><span>Самовивіз</span>
-                </label>
-                <label class="checkboxEntry radio ml-3">
-                  <input type="radio" name="delivery" value="advance"><span>Заздалегідь</span>
-                </label>
-              </div>
               <div class="emptySpace20 emptySpace-xs15"></div>
               <div class="inputElementWrapper">
                 <input class="inputElementItem" ngModel name="userName" type="text" placeholder="Ваше імя" required
@@ -155,20 +144,6 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="btnWrapper txtRight fadeInTop mt-3">
-            <div class="emptySpace40 emptySpace-xs20"></div>
-            <div class="payCheckboxs text-left">
-              <label class="checkboxEntry radio ">
-                <input id="pay" type="radio" name="payment-type" value="cash" class="payment-cash"
-                  checked="checked"><span>Оплата готівкою</span>
-              </label>
-              <label class="checkboxEntry radio ml-3">
-                <input id="pay2" type="radio" name="payment-type" value="card" class="payment-card"><span>Безготівкова
-                  оплата</span>
-              </label>
-            </div>
-            <div class="emptySpace40"></div>
           </div>
           <div class="emptySpace-lt60 emptySpace-md45 emptySpace-xs25"></div>
         </div>

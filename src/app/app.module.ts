@@ -36,7 +36,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment.prod';
-import { LoginComponent } from './login/login.component';
 import { SearchOrderPipe } from './shared/pipes/search-order.pipe';
 import { ProfileComponent } from './profile/profile.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -65,7 +64,6 @@ registerLocaleData(localeUk);
     SearchDiscountPipe,
     BasketComponent,
     AdminOrderComponent,
-    LoginComponent,
     SearchOrderPipe,
     ProfileComponent,
   ],

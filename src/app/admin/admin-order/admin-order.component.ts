@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { OrderService } from '../../shared/services/order.service';
 import { IOrder } from 'src/app/shared/interfaces/order.interface';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { IProduct } from '../../../../../../../la-piec/src/app/shared/interfaces/product.interface';
+import { IProduct } from 'src/app/shared/interfaces/product.interface';
 import { Order } from 'src/app/shared/models/order.model';
 import { AngularFirestore } from '@angular/fire/firestore';
 

@@ -334,7 +334,7 @@ body:not(.mobile) .productItemAnimate {
   background-size: contain;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 
@@ -423,7 +423,7 @@ body:not(.mobile) .productItemAnimate .productDescription:after {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  overflow: hidden;
+  // overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   margin-bottom: 3px;
@@ -1036,5 +1036,5 @@ label.light textarea:-ms-input-placeholder {
 
 .modal-order{
 max-width:1000px!important;
-
 }
+
